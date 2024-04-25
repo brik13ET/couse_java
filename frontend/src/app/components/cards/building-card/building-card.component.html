@@ -1,0 +1,10 @@
+<div class="card w-100">
+    <div class="card-body">
+        <h5 class="card-title">{{building[0].name}} <sub>id: {{building[0].id}}</sub></h5>
+        <span class="card-text">Комнат: {{building[1]}}</span>
+    </div>
+    <div class="card-footer d-flex justify-content-around gap-3">
+        <a routerLink="/building/{{building[0].id}}" class="flex-grow-1 btn btn-primary">Подробнее</a>
+        <a (click)="delete()" routerLink="/building" class="flex-grow-1 btn btn-outline-danger">Удалить</a>
+    </div>
+</div>

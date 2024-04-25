@@ -1,0 +1,19 @@
+<div class="col d-flex gy-3 p-3 flex-column justify-content-around">
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Имя здания</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="building.name">
+    </div>
+    <div class="d-flex flex-row justify-content-around gap-3">
+      <button type="button" class="btn btn-primary flex-grow-1" (click)="submit()">
+        @if (isCreate) { Создать }
+        @else { Применить }
+      </button>
+      <button type="button" class="btn btn-secondary-outline flex-grow-1" routerLink="/building" >Назад</button>
+    </div>
+
+    @if (!isCreate) {
+      <app-room-list [room]="(getRooms() | async) || []" [filtered]="true"></app-room-list>
+    }
+</div>

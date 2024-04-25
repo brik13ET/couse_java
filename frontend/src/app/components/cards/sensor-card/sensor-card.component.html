@@ -1,0 +1,10 @@
+<div class="card w-100">
+    <div class="card-body">
+        <h5 class="card-title">{{sensor.name}}</h5>
+        <span class="card-text">{{sensor.value}}</span>
+        <div class="card-footer d-flex justify-content-around">
+            <a routerLink="/sensor/{{sensor.id}}" class="btn btn-primary">Подробнее</a>
+            <a routerLink="/sensor/{{sensor.id}}" class="btn btn-outline-danger">Удалить</a>
+        </div>
+    </div>
+</div>

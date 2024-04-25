@@ -1,0 +1,15 @@
+<div class="card w-100">
+    <div class="card-body">
+        <h5 class="card-title">{{room.name}}<sub> id: {{room.id}}</sub></h5>
+        <p class="card-text">
+            Датчиков: {{room.sensor_ids.length}}<br>
+            <a routerLink="/building/{{room.building_id}}">
+                Здание: id = {{room.building_id}}
+            </a>
+        </p>
+        <div class="card-footer d-flex justify-content-around gap-3">
+            <a routerLink="/room/{{room.id}}" class="flex-grow-1 btn btn-primary">Подробнее</a>
+            <a (click)="deleteMe()" class="flex-grow-1 btn btn-outline-danger">Удалить</a>
+        </div>
+    </div>
+</div>

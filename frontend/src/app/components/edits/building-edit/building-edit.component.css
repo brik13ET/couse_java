@@ -1,0 +1,6 @@
+app-room-list
+{
+    overflow-y: auto;
+    height: 100%;
+    max-height: calc( 100vh - 12rem);
+}

@@ -1,0 +1,39 @@
+<div class="col d-flex gy-3 p-3 flex-column justify-content-around">
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Имя комнаты</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" [(ngModel)]="room.name">
+      </div>
+
+      <div class="input-group input-group-sm mb-3">
+          <div class="input-group-prepend prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Здание</span>
+          </div>
+          <select class="form-select" title="buildings" name="building" id="bld" [(ngModel)]="room.building_id">
+            @for (bld of (getBuildings() | async); track bld.id) {
+                @if (!isCreating && room.building_id == bld.id)
+                {
+                  <option value="{{bld.id}}" selected>{{bld.name}} <sub>id: {{bld.id}}</sub></option>
+                }
+                @else
+                {
+                  <option value="{{bld.id}}">{{bld.name}} <sub>id: {{bld.id}}</sub></option>
+                }
+            }
+          </select>
+        </div>
+        
+        @if (!isCreating)
+        {
+          <app-sensor-list></app-sensor-list>
+        }
+    <app-sensor-list [sensor$]="getSensors()"></app-sensor-list>
+    <div class="d-flex flex-row justify-content-around gap-3 p-3">
+      <button type="button" class="btn btn-primary flex-grow-1" (click)="submit()">
+        @if (isCreating) { Создать }
+        @else { Применить }
+      </button>
+      <button type="button" class="btn btn-secondary-outline flex-grow-1" routerLink="/room">Назад</button>
+    </div>
+</div>
